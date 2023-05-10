@@ -10,5 +10,15 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  css: {
+    preprocessorOptions:{
+      less: {
+        modifyVars: {
+          'primary-color': '#ff9eee'
+        },
+        javascriptEnabled: true,
+      },
+    },
+  },
 })
