@@ -12,13 +12,14 @@ export default defineConfig({
     }
   },
   css: {
-    preprocessorOptions:{
-      less: {
-        modifyVars: {
-          'primary-color': '#ff9eee'
-        },
-        javascriptEnabled: true,
-      },
-    },
   },
+  server: {
+    proxy: {
+      '/pixiv': {
+        target: 'https://i.pixiv.re',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/pixiv/, '')
+      },
+    }
+  }
 })

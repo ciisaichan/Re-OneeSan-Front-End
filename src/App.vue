@@ -1,48 +1,51 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import {notification} from "ant-design-vue";
+import {RouterView} from 'vue-router'
+import TopMenu from './components/TopMenu.vue'
+import type {TopBoxInfo} from './types'
 
-function test() {
-  notification["success"]({
-    message: 'Notification Title',
-    description:
-        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-    onClick: () => {
-      console.log('Notification Clicked!');
-    },
-  })
+function emitHandle(input: TopBoxInfo) {
+    console.log(input.BoxMode);
+    console.log(input.BoxStr);
 }
 
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <TopMenu @boxButtonClick="emitHandle"/>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <div class="flex gap-4 items-center place-content-center">
-        <div>
-          <a-button @click="test()" type="primary">Ant Design</a-button>
-        </div>
-        <div>
-          <span class="text-base">tailwindcss</span>
-        </div>
-      </div>
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <div class="pt-20">
+        <RouterView />
     </div>
-  </header>
 
-  <RouterView />
+  <!--
+<header>
+  <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+
+  <div class="wrapper">
+    <HelloWorld msg="You did it!" />
+
+    <div class="flex gap-4 items-center place-content-center">
+      <div>
+        <a-button @click="test()" type="primary">Ant Design</a-button>
+      </div>
+      <div>
+        <span class="text-base">tailwindcss</span>
+      </div>
+    </div>
+
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </nav>
+  </div>
+</header>
+
+<RouterView />
+-->
 </template>
 
 <style scoped>
+/*
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -104,4 +107,5 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+ */
 </style>

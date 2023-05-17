@@ -1,8 +1,25 @@
-@import './base.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    overflow-y: scroll;
+}
+
+/*
+.top-menu-select {
+    @apply rounded-r-none !important
+}
+
+.top-menu-input {
+    @apply border-l-0 border-r-0 rounded-none
+}
+
+.top-menu-btn .ant-btn {
+    @apply rounded-l-none shadow-none bg-white align-baseline !important
+}
+
+@import './base.css';
 
 #app {
   max-width: 1280px;
@@ -37,3 +54,4 @@ a,
     padding: 0 2rem;
   }
 }
+*/
